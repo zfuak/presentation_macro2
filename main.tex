@@ -48,6 +48,141 @@
   \tableofcontents%[hideallsubsections]
 \end{frame}
 
+\section{Introduction}
+
+\begin{frame}{Introduction}
+    It establishes a link between the \alert{theoretical} RBC model literature and the \alert{empirical} output dynamics analysis.
+    \begin{itemize}
+        \item Theoretical (3 models): 
+        \begin{enumerate}
+            \item Baseline RBC
+            \item Baseline + capital adjustment cost
+            \item Baseline + labor adjustment cost
+        \end{enumerate}
+        \item Empirical (4 graphs)
+        \begin{enumerate}
+            \item output growth $\Delta y_t$ behavior: autocorrelation function \& spectrum decomposition
+            \item impulse response: to \alert{permanent} shock $\varepsilon_z$ \& \alert{temporary} shock $\varepsilon_g$
+        \end{enumerate} 
+    \end{itemize}
+They calibrate the model with real world data $\to$ simulate shocks to feed into the model $\to$ graph and compare the simulated responses with that of empirical observations.
+
+    \note[itemize]{
+    \item point 1
+    \item point 2
+    }
+\end{frame}
+\begin{frame}{Focus (all about shocks...)}
+\metroset{block=fill}
+        \begin{exampleblock}{Theory}
+            Propagation mechanisms embedded in the model resulted in different $\Delta y_t$ responses to shocks $\varepsilon_z$ and $\varepsilon_g$ 
+        \end{exampleblock}
+        \begin{align}
+            &(1-L) \ln \left(a_{t}\right)=\mu+\varepsilon_{\mathrm{a} t} \\
+            &\ln \left(g_{t}\right)-\ln \left(a_{t}\right)=\bar{g}+\varepsilon_{g t} /(1-\rho L) 
+        \end{align}
+     
+        \begin{exampleblock}{Empirical}
+        An important component in empirical analysis is how to identify $\varepsilon_z$ and $\varepsilon_g$ from observation of $\Delta y_t$.
+    \end{exampleblock}
+\end{frame}
+
+
+\section{Main Idea}
+\subsection{Baseline Model}
+
+\begin{frame}{Estimation and Simulation}
+    \begin{itemize}
+        \item Estimation
+            \begin{itemize}
+                \item Christiano and Eichenbaum (1992) estimate, $\mu = 0.004, \bar{g} = 0.177$, and $p = 0.96$
+                \item Rescale the innovation variances to match the sample variance of per capita GNP growth: $\sigma_a = 0.0097$ and $\sigma_g = 0.0113$
+            \end{itemize}
+        \item Monte Carlo Simulation
+            \begin{itemize}
+                \item Generate artificial data over a time horiwzon of 140 quarters to match the length of sample period
+                \item Each model was simulated 1,000 times
+                \item Autocorrelation and impulse-response functions were estimated for each artificial sample
+            \end{itemize}
+        
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Baseline model simulation and comparison}
+\begin{figure}
+    \centering
+  \includegraphics[width=0.5\linewidth]{baseline_all.png}
+  %\caption{}
+\end{figure}
+\begin{itemize}
+    \item  ACF are close to zero, output growth is close to being white noise $\rightarrow$  No serial correlation
+    \item Spectrum is quite flat $\rightarrow$ No Business-cycle periodicity in output growth
+    \item The model strongly damps transitory shock and generates monotonic decay $\rightarrow$ No trend-reverting component in output
+\end{itemize}
+\end{frame}
+
+\subsection{Gestation Lags and Capital Adjustment Costs}
+
+\begin{frame}{Gestation Lags and Capital Adjustment Costs}
+    Production function becomes:
+    $$
+\ln \left(y_t\right)= \ln \left[f\left(k_t, a_t n_t\right)\right] -\left(\alpha_{k} / 2\right)\left[\Delta k_t / k_{t-1}\right]^2
+$$
+
+Based on Shapiro (1986), $\alpha_{k}$ is calibrated to be 2.2
+
+\end{frame}
+
+\begin{frame}{Comparison}
+\begin{figure}
+    \centering
+  \includegraphics[width=0.6\linewidth]{Capital adj cost.png}
+  %\caption{}
+\end{figure}
+\begin{itemize}
+    \item No serial correlation or Business-cycle periodicity in output growth
+    \item No effect on IRF $\rightarrow$ No help to propagate shocks
+    \begin{itemize}
+        \item Gestation Lags and Capital Adjustment Costs alter $I_t$, but $I_t$ is small relative to $k_t$ $\rightarrow$ little effect on $y_t$
+    \end{itemize}
+\end{itemize}
+    
+\end{frame}
+
+\subsection{Employment Lags and Labor Adjustment Costs}
+\begin{frame}{Employment Lags and Labor Adjustment Costs}
+\textbf{Adjustment-cost model}
+
+Production function:
+$$
+\ln \left(y_t\right)= \ln \left[f\left(k_t, a_t n_t\right)\right] -\left(\alpha_{k} / 2\right)\left[\Delta k_t / k_{t-1}\right]^2 -\left(\alpha_n / 2\right)\left[\Delta n_t / n_{t-1}\right]^2
+$$
+
+Shapiro's estimate : $\alpha_{k} = 0.36$
+
+
+\textbf{Labor-hoarding model} of Burnside et al. (1993): firms must choose the size of the labor force before observing the current state of the economy but can vary the intensity of work effort after observing the current state
+
+\end{frame}
+
+\begin{frame}{Comparison}
+\begin{figure}
+    \centering
+  \includegraphics[width=0.6\linewidth]{labor cost.png}
+  %\caption{}
+\end{figure}
+\begin{itemize}
+    \item Positive autocorrelation in output growth
+    \begin{itemize}
+        \item Burnside et al. (1993) model: positively autocorrelated at lag 1 and has modest negative autocorrelation at higher-order lags
+        \item Adjustment-cost model: output growth is well approximated by an AR(1), with positive autocorrelation at lag 1 and monotonic decay at higher-order lags
+    \item Modest serial correlation
+    \end{itemize}
+\end{itemize}
+    
+\end{frame}
+
 
 
 \end{document}

@@ -2,7 +2,7 @@
 
 \usetheme[progressbar=frametitle]{metropolis}
 \usepackage{appendixnumberbeamer}
-
+\usepackage{emoji}
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
@@ -105,7 +105,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Baseline RBC (how many times I have seen you...)}
+\begin{frame}{Baseline RBC (again and again...)}
     Representative agent:
     \begin{equation}
         E_{t} \sum_{j=0}^{\infty} \beta^{j} \left[\ln (c_{t+j})+\gamma(N-n_{t+j})\right]
@@ -119,14 +119,10 @@
 
 \end{frame}
 
-\begin{frame}{Solve the model}
-
-\end{frame}
-
 \begin{frame}{Focus (all about shocks...)}
     \metroset{block=fill}
     \begin{exampleblock}{Theory}
-        Propagation mechanisms embedded in the model resulted in different $\Delta y_t$ responses to shocks $\varepsilon_z$ and $\varepsilon_g$
+        Propagation mechanisms embedded in the model resulted in different $\Delta y_t$ responses to shocks $\varepsilon_z$ and $\varepsilon_g$.
     \end{exampleblock}
     \begin{align}
          & (1-L) \ln \left(a_{t}\right)=\mu+\varepsilon_{\mathrm{a} t}                         \\
@@ -134,31 +130,42 @@
     \end{align}
 
     \begin{exampleblock}{Empirical}
-        An important component in empirical analysis is how to identify $\varepsilon_z$ and $\varepsilon_g$ from observation of $\Delta y_t$.
+        An important component in empirical analysis is how to identify $\varepsilon_z$ and $\varepsilon_g$ from observation of $\Delta y_t$. See \cite{blanchard_quah_1988}
     \end{exampleblock}
 \end{frame}
-%\begin{frame}{Introduction}
-%    It establishes a link between the \alert{theoretical} RBC model literature and the \alert{empirical} output dynamics analysis.
-%    \begin{itemize}
-%        \item Theoretical (3 models): 
-%        \begin{enumerate}
-%            \item Baseline RBC
-%            \item Baseline + capital adjustment cost
-%            \item Baseline + labor adjustment cost
-%        \end{enumerate}
-%        \item Empirical (4 graphs)
-%        \begin{enumerate}
-%            \item output growth $\Delta y_t$ behavior: autocorrelation function \& spectrum decomposition
-%            \item impulse response: to \alert{permanent} shock $\varepsilon_z$ \& \alert{temporary} shock $\varepsilon_g$
-%        \end{enumerate} 
-%    \end{itemize}
-%They calibrate the model with real world data $\to$ simulate shocks to feed into the model $\to$ graph and %compare the simulated responses with that of empirical observations.
-%
-%    \note[itemize]{
-%    \item point 1
-%    \item point 2
-%    }
-%\end{frame}
+
+\begin{frame}{Solve the model (no analytical solution when $\delta \neq 1$)}
+    See \cite{christiano_eichenbaum_2020}
+    Recall the RBC model($\delta=1$) where the only shock is TFP shock (following random walk with drift $\gamma$):
+    \begin{equation*}
+        \Delta y_t = \alpha \Delta y_{t-1} + (1-\alpha) \Delta z_t = \alpha \Delta y_{t-1} + (1-\alpha) \varepsilon_{z t}
+    \end{equation*}
+    See Lecture slides p52-53. This is called \textbf{balanced growth} because $E(\Delta y_t) = \gamma = E(\Delta z_t)$.
+    \metroset{block=fill}
+    \begin{alertblock}{Result from \cite{christiano_eichenbaum_2020}}
+        The model is a balanced growth RBC model, which implies \textbf{per capita hours} are stationary. Let us denote $y_t, n_t$ the log of output and labor. Balanced growth property implies the vector
+        \begin{equation*}
+            Y_t = \begin{pmatrix}
+                \Delta y_t \\ n_t
+            \end{pmatrix}
+        \end{equation*} is stationary.
+    \end{alertblock}
+\end{frame}
+\begin{frame}{Shock identification}
+    $\Longrightarrow$ The result satisfies the \cite{blanchard_quah_1988} assumptions.
+    $\Longrightarrow$ We can apply the Blanchard-Quah decomposition (essentially Cholesky decomposition) to identify the shocks. \footnote{Thanks to the presentation of the previous group \emoji{smiley}}\\
+    See Lecture slides section on \emph{long run restrictions}.
+\end{frame}
+\begin{frame}{Long run restrictions (for completeness)}
+    \begin{enumerate}
+        \item rewrite VAR as a VMA (\infty) process $Y_t=B(L)u_t=C(L)\varepsilon_t$
+        \item impose that in the long run, $\varepsilon_g$ has no effect on output growth
+              $\Delta y_t$. $C_{12}(1)=0\rightarrow C(1)$ is a lower triangular matrix.
+        \item recover $C(1)$ from Cholesky decomposition of $B(1)\Sigma_u B(1)'$ (known from
+              VAR estimation).
+        \item recover $S$ from $C(1)=B(1)S$.
+    \end{enumerate}
+\end{frame}
 
 \section{Main Idea}
 \subsection{Baseline Model}
@@ -419,6 +426,18 @@
         \item Labor: Right qualitative response to transitory shocks, but too small in
               magnitude
     \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Refresh our memory of the course}
+    RBC model with full depreciation and labor wedge, where $\z_t$ follows random walk with drift and $n_t$ follows an AR(1) process. The stochastic components share the same property with those in this paper \cite{cogley_nason_1995}.
+    The model result is also balanced growth, which implies stationarity of $\Delta y_t$ and $n_t$.
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+
+    \bibliography{main.bib}
+    \bibliographystyle{abbrv}
 
 \end{frame}
 

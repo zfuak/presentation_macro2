@@ -85,10 +85,10 @@
     \end{itemize}
 \end{frame}
 
-\section{Modeling result and shock identification}
+\section{Model and Estimation}
 
 \begin{frame}{Baseline RBC (again and again...)}
-    The model is taken from \cite{christiano_eichenbaum_2020}.
+    The model is taken from \cite{christiano_eichenbaum_1992}.
     \begin{equation}
         \max_{c_t,n_t} E_{t} \sum_{j=0}^{\infty} \beta^{j} \left[\ln (c_{t+j})+\gamma(N-n_{t+j})\right]
     \end{equation}
@@ -98,7 +98,7 @@
                         & c_t = c_t^p+\alpha \alert{g_t}                  \\
         \Longrightarrow & c_t + (1-\alpha)g_t +i_t=y_t                    \\
                         & y_t = k_t^{\theta} (\alert{a_t} n_t)^{1-\theta} \\
-                        & k_{t+1} = (1-\delta) k_t + i_t                  \\
+                        & k_{t+1} = (1-\delta) k_t + i_t             
     \end{align*}
     The \alert{stochastic} component is $a_t$ and $g_t$:
     \begin{align}
@@ -116,7 +116,7 @@
         \frac{1}{c_t}=\beta \E\set{\frac{1}{c_{t+1}}\pa{\theta\frac{y_{t+1}}{k_{t+1}}+1-\delta}}
     \end{equation}
 
-    \alert{No analytical solution} according to \cite{christiano_eichenbaum_2020}. \footnote{which is why we adopt the full depreciation case to get closed form solutions:)}
+    \alert{No analytical solution} according to \cite{christiano_eichenbaum_1992}. \footnote{which is why we adopt the full depreciation case to get closed form solutions:)}
 
 \end{frame}
 
@@ -141,15 +141,13 @@
 \end{frame}
 
 \begin{frame}{Solutions}
-    From \cite{christiano_eichenbaum_2020}, we get
+    From \cite{cogley_nason_1993}, they use another algorithm, which gives an (approximated) closed form solution:  
     \begin{equation}
-        \Delta y_{\mathrm{P}}(t)=\underbrace{\left[\frac{\varepsilon_{\mathrm{a}}(t)}{1-L}\right]}_{\textit{shock dynamics}}\underbrace{\left[(1.04)\left(\frac{1-0.87 L}{1-0.94 L}\right)\right]}_{\textit{propagation effect}}
-    \end{equation}\footnote{The permanent component inherits a random-walk term from the technology shock and an ARMA(1, 1) term from the propagation mechanisms. However, the ARMA(1, 1) term contains near common factors.}
+         ln(y(t))_P=\bra{1.04\frac{1-0.87L}{1-0.94L}}\bra{\frac{\varepsilon_z(t)}{1-L}}\footnote{the permanent component inherits a random-walk term from the technology shock and an ARMA(1, 1) term from the propagation mechanisms. However, the ARMA(1, 1) term contains near common factors.}
+    \end{equation}
     \begin{equation}
-        \Delta y_{\mathrm{T}}(t)=\underbrace{\left[\frac{\varepsilon_{\mathrm{g}}(t)}{1-0.96
-                    L}\right]}_{\textit{shock dynamics}}\underbrace{(0.16)}_{\textit{propagation
-            effect}}
-    \end{equation}\footnote{The transitory impulse-response function inherits the AR(1) dynamics of the government spending shock. Propagation mechanisms damp government spending shocks but do not alter their dynamics. Hence there are no dynamic propagation effects on government spending shocks.}
+         ln(y(t))_T=0.16\bra{\frac{\varepsilon_g(t)}{1-0.96L}}\footnote{the transitory impulse-response function inherits the AR(1) dynamics of the government spending shock. Propagation mechanisms damp government spending shocks but do not alter their dynamics. Hence there are no dynamic propagation effects on government spending shocks.}
+    \end{equation}
 \end{frame}
 \begin{frame}{Focus (all about shocks...)}
     \metroset{block=fill}
@@ -158,7 +156,7 @@
     \end{exampleblock}
 
     \begin{exampleblock}{Empirical: shock identification in SVAR}
-        Identify the matrix $S$ where $u_t=S\varepsilon_t$ from VAR(q) model $\phi(L)Y_t=u_t$. See \cite{blanchard_quah_1988}.\footnote{closely related to what we are learning at the moment.}
+        Identify the matrix $S$ where $u_t=S\varepsilon_t$ from VMA model $Y_t=C(L)u_t$. See \cite{blanchard_quah_1988}.\footnote{closely related to what we are learning at the moment.}
     \end{exampleblock}
 \end{frame}
 
@@ -166,24 +164,23 @@
     \begin{enumerate}
         \item rewrite VAR as a VMA ($\infty$) process $Y_t=B(L)u_t=C(L)\varepsilon_t$
         \item impose that in the long run, $\varepsilon_g$ has no effect on output growth
-              $\Delta y_t$. $C_{12}(1)=0\rightarrow C(1)$ is a lower triangular matrix.
+              $ y_t$. $C_{12}(1)=0\rightarrow C(1)$ is a lower triangular matrix.
         \item recover $C(1)$ from Cholesky decomposition of $B(1)\Sigma_u B(1)'$ (The
               matrices are known from VAR estimation).
         \item recover $S$ from $C(1)=B(1)S$.
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{SVMA}
-    Recall what the solutions of $\Delta y_t$ and $n_t$  \footnote{$n_{t}=n\left(\bar{k}_{t} / \bar{k}\right)^{r_{n}}\left(\bar{g}_{t} / \bar{g}\right)^{d_{n}} \exp \left[e_{n}\left(\lambda_{t}-\lambda\right)\right]$}
-    in the \cite{christiano_eichenbaum_2020} model.
-    Then we can write the SVMA representation of $\Delta y_t$ and $n_t$ as
-    \begin{equation}
-        Y_t = \begin{pmatrix}
-            \Delta y_t \\ n_t
-        \end{pmatrix}=C(L)\varepsilon_t
-    \end{equation}
+\begin{frame}{SVAR}
+    Balanced-growth RBC models imply that per capita hours are stationary, so the modified VAR satisfies the Blanchard-Quah asssumption\footnote{"We assume that there are two kinds of disturbances, each uncorrelated with the other, and that neither has a long-run effect on unemployment. We assume however that the first has a long-run effect on output while the second does not. These assumptions are sufficient to just identify the two types of disturbances, and their dynamic effects on output and unemployment."}
+    \begin{enumerate}
+        \item A VAR(2) is estimated for $\Delta \ln y_t$ and $n_t$.
+        \item $S$ matrix is recovered using Long run restriction method in \cite{blanchard_quah_1988}.
+        \item The impulse response function is obtained.
+    \end{enumerate} 
+
 \end{frame}
-Since the model implies that $\varepsilon_g$ has no long run effect on output growth $ \Leftrightarrow C_{12}(1)=0$, the matrix $C(1)$ is lower triangular. \footnote{(the model satisfies assumptions imposed  the \cite{blanchard_quah_1988} model.)}
+
 
 \section{Main Idea}
 \subsection{Baseline Model}
@@ -427,10 +424,22 @@ Since the model implies that $\varepsilon_g$ has no long run effect on output gr
     \begin{quote}
         RBC model with full depreciation and labor wedge, where $z_t$ follows random walk with drift and $n_t$ follows an AR(1) process.
     \end{quote}
-    $\Longrightarrow$ The stochastic components share the same property with those in this paper \cite{cogley_nason_1995}.\\
-    $\Longrightarrow$ The model result is also balanced growth, which implies stationarity of $\Delta y_t$ and $n_t$.
-    \includegraphics*[width=0.5\textwidth]{figures/example3.png}
+        \begin{figure}
+        \centering
+        \includegraphics[width=0.7\linewidth]{figures/example3.png}
+    \end{figure}
+    $\Longrightarrow$ The stochastic components share the same property with this paper \cite{cogley_nason_1995}.\\
+    $\Longrightarrow$ We can apply \alert{Short run} restriction (the zero impact restriction), as seen from the VAR representation .\\
+    $\Longrightarrow$ The model is also balanced growth, which implies that \cite{blanchard_quah_1988} assumptions are also satisfies. We can \alert{Long run} restriction to estimate $S$. \\
+    
+
 \end{frame}
+
+{\setbeamercolor{palette primary}{fg=black, bg=yellow}
+\begin{frame}[standout]
+  Questions
+\end{frame}
+}
 
 \begin{frame}[allowframebreaks]{References}
 

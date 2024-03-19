@@ -17,26 +17,6 @@
 
 \author{Zixuan, Huixin, Rémi}
 \institute{M2 ETE Macroeconomics 2}
-% \titlegraphic{%
-%     \includegraphics[width=.3\textwidth]{figures/TSE_Logo_2019.png}\hfill
-% }
-
-% \makeatletter
-% \setbeamertemplate{title page}{
-%   \begin{minipage}[b][\paperheight]{\textwidth}
-%     \vfill%
-%     \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
-%     \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
-%     \usebeamertemplate*{title separator}
-%     \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
-%     \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
-%     \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
-%     \vfill
-%     \ifx\inserttitlegraphic\@empty\else\inserttitlegraphic\fi
-%     \vspace*{1cm}
-%   \end{minipage}
-% }
-% \makeatother
 
 \begin{document}
 
@@ -159,11 +139,11 @@
 \end{frame}
 \begin{frame}{Long run restrictions (for completeness)}
     \begin{enumerate}
-        \item rewrite VAR as a VMA ($\infty$) process  $Y_t=B(L)u_t=C(L)\varepsilon_t$
+        \item rewrite VAR as a VMA ($\infty$) process $Y_t=B(L)u_t=C(L)\varepsilon_t$
         \item impose that in the long run, $\varepsilon_g$ has no effect on output growth
               $\Delta y_t$. $C_{12}(1)=0\rightarrow C(1)$ is a lower triangular matrix.
-        \item recover $C(1)$ from Cholesky decomposition of $B(1)\Sigma_u B(1)'$ (The matrices are known from
-              VAR estimation).
+        \item recover $C(1)$ from Cholesky decomposition of $B(1)\Sigma_u B(1)'$ (The
+              matrices are known from VAR estimation).
         \item recover $S$ from $C(1)=B(1)S$.
     \end{enumerate}
 \end{frame}
@@ -309,28 +289,28 @@
 \end{frame}
 
 \begin{frame}{ACF for Output Growth}
-      \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-              \begin{figure}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/Bse_ACF.png}
             \caption{Baseline Model}
         \end{figure}
 
-    \column{0.33\textwidth}
+        \column{0.33\textwidth}
         \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/K_ACF.png}
             \caption{Capital Adjustment Cost}
         \end{figure}
 
-    \column{0.33\textwidth}
-      \begin{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/L_ACF.png}
             \caption{Labor Adjustment Cost}
         \end{figure}
-  \end{columns}
+    \end{columns}
 
     \begin{itemize}
         \item Baseline \& Capital: No serial autocorrelation
@@ -340,28 +320,28 @@
 \end{frame}
 
 \begin{frame}{Spectrum for Output Growth}
-       \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-              \begin{figure}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/Base_spect.png}
             \caption{Baseline Model}
         \end{figure}
 
-    \column{0.33\textwidth}
+        \column{0.33\textwidth}
         \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/K_spect.png}
             \caption{Capital Adjustment Cost}
         \end{figure}
 
-    \column{0.33\textwidth}
-      \begin{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/L_spect.png}
             \caption{Labor Adjustment Cost}
         \end{figure}
-  \end{columns}
+    \end{columns}
 
     \begin{itemize}
         \item Baseline \& Capital: Spectrum is quite flat $\Rightarrow$ No Business-cycle
@@ -372,28 +352,28 @@
 \end{frame}
 
 \begin{frame}{Permanent Impulse Response Function}
-      \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-              \begin{figure}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/Base_per_IRF.png}
             \centering\caption{Baseline Model}
         \end{figure}
 
-    \column{0.33\textwidth}
+        \column{0.33\textwidth}
         \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/K_per_IRF.png}
             \centering\caption{Capital Adjustment Cost}
         \end{figure}
 
-    \column{0.33\textwidth}
-      \begin{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/L_per_IRF.png}
             \centering\caption{Labor Adjustment Cost}
         \end{figure}
-  \end{columns}
+    \end{columns}
 
     \begin{itemize}
         \item Baseline \& Capital: Some success in matching the permanent IRF
@@ -403,29 +383,29 @@
 \end{frame}
 
 \begin{frame}{Transitory Impulse Response Function}
-      \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-              \begin{figure}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/Base_trans_IRF.png}
             \caption{Baseline Model}
         \end{figure}
 
-    \column{0.33\textwidth}
+        \column{0.33\textwidth}
         \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/K_trans_IRF.png}
             \caption{Capital Adjustment Cost}
         \end{figure}
 
-    \column{0.33\textwidth}
-      \begin{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
             \centering
             \includegraphics[width=\linewidth]{figures/L_trans_IRF.png}
             \caption{Labor Adjustment Cost}
         \end{figure}
-  \end{columns}
-    
+    \end{columns}
+
     \begin{itemize}
         \item Baseline \& Capital: Wrong qualitative and quantitative response to transitory
               shocks
@@ -459,12 +439,12 @@
 \end{frame}
 
 \begin{frame}{Refresh our memory of the course}
-In the course example \#3, we have 
+    In the course example \#3, we have
     \begin{quote}
-        RBC model with full depreciation and labor wedge, where $\z_t$ follows random walk with drift and $n_t$ follows an AR(1) process. 
+        RBC model with full depreciation and labor wedge, where $\z_t$ follows random walk with drift and $n_t$ follows an AR(1) process.
     \end{quote}
-        $\Longrightarrow$ The stochastic components share the same property with those in this paper \cite{cogley_nason_1995}.\\
-        $\Longrightarrow$ The model result is also balanced growth, which implies stationarity of $\Delta y_t$ and $n_t$.
+    $\Longrightarrow$ The stochastic components share the same property with those in this paper \cite{cogley_nason_1995}.\\
+    $\Longrightarrow$ The model result is also balanced growth, which implies stationarity of $\Delta y_t$ and $n_t$.
 
 \end{frame}
 

@@ -171,7 +171,7 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{SVAR}
+\begin{frame}{Summary}
     Balanced-growth RBC models imply that per capita hours are stationary, so the modified VAR satisfies the Blanchard-Quah asssumption\footnote{"We assume that there are two kinds of disturbances, each uncorrelated with the other, and that neither has a long-run effect on unemployment. We assume however that the first has a long-run effect on output while the second does not. These assumptions are sufficient to just identify the two types of disturbances, and their dynamic effects on output and unemployment."}
     \begin{enumerate}
         \item A VAR(2) is estimated for $\Delta \ln y_t$ and $n_t$.
@@ -419,19 +419,17 @@
     $\Rightarrow$ Propagation mechanisms in the models do not generate the right kind of output dynamics
 \end{frame}
 
-\begin{frame}{Par parentheses}
-    In the course example \#3, we have
-    \begin{quote}
-        RBC model with full depreciation and labor wedge, where $z_t$ follows random walk with drift and $n_t$ follows an AR(1) process.
-    \end{quote}
+\begin{frame}{On a side note}
+    In class, example \#3, the stochastic components share the same property with this paper.
         \begin{figure}
         \centering
         \includegraphics[width=0.7\linewidth]{figures/example3.png}
     \end{figure}
-    $\Longrightarrow$ The stochastic components share the same property with this paper \cite{cogley_nason_1995}.\\
-    $\Longrightarrow$ We can apply \alert{Short run} restriction (the zero impact restriction), as seen from the VAR representation .\\
-    $\Longrightarrow$ The model is also balanced growth, which implies that \cite{blanchard_quah_1988} assumptions are also satisfies. We can \alert{Long run} restriction to estimate $S$. \\
     
+    \metroset{block=fill}
+    \begin{alertblock}{Takeaway}
+        A combination of the more structural paper by \cite{christiano_eichenbaum_1992} and the more empirical paper by \cite{blanchard_quah_1988}. It uses the latter to test the former.  
+    \end{alertblock}
 
 \end{frame}
 

@@ -27,5 +27,9 @@ Moreover, similarity can be seen from the shock dynamics. Thus, BQ assumptions a
 
 # Question
 why do we call $\varepsilon_g$ a transitory shock? It is not clear to me. Demand shock is transitory while supply shock is permanent? 
-
+Because the CE model is a case of balanced growth model (why?), the assumptions of BQ decomposition hold. (why?). How does balance growth model relate to those assumptions?
+1. why is it a balanced model?
+2. why is technology shock a permanent shock?
+3. GNP growth mainly due to transitory shocks. The GNP has an important trend reverting component.
+4. The propogation mechanism do not generate 
 

@@ -125,13 +125,13 @@
         \item Plug in the constraints into the objective function, we get
               \begin{equation*}
                   \begin{split}
-                      \E_{t} \sum_{j=0}^{\infty} \beta^{j} &\set{ln\bra{(a_tn_t)^{1-\theta}k_t^\alpha+(1-\delta)k_t-k_{t+1}+(1-\alpha)g_t}\\
+                      \E_{t} \sum_{j=0}^{\infty} \beta^{j} &\set{\ln\bra{(a_tn_t)^{1-\theta}k_t^\alpha+(1-\delta)k_t-k_{t+1}+(1-\alpha)g_t}\\
                       &+\gamma(N-n_{t+j})}
                   \end{split}
               \end{equation*}
         \item And ``normalize" $k_{t+1}, g_t$ by \alert{$a_t$} to get
               $\bar{k}_{t+1},\bar{g}_t$ Then the objective function becomes \begin{equation*}
-                  E_{t} \sum_{j=0}^{\infty} \beta^{j} r(n_t, \bar{k}_t,\bar{k}_{t+1},\bar{g}_t)
+                  \E_{t} \sum_{j=0}^{\infty} \beta^{j} r(n_t, \bar{k}_t,\bar{k}_{t+1},\bar{g}_t)
               \end{equation*}
         \item Then approximate $r(\cdot)$ by log linearization: second order Taylor expansion
               of $r(\exp(A_1), \exp(A_2),\cdots)$
@@ -151,7 +151,7 @@
 \end{frame}
 \begin{frame}{Focus (all about shocks...)}
     \metroset{block=fill}
-    \begin{exampleblock}{Theory: RBC model literalure}
+    \begin{exampleblock}{Theory: RBC model literature}
         Propagation mechanisms.
     \end{exampleblock}
 
@@ -182,7 +182,7 @@
 \end{frame}
 
 
-\section{Main Idea}
+\section{Main Results}
 \subsection{Baseline Model}
 
 \subsection{Gestation Lags and Capital Adjustment Costs}
@@ -341,7 +341,7 @@
     \begin{itemize}
         \item Baseline \& Capital: Some success in matching the permanent IRF (at
               higher-order lags)
-        \item Labor: Hump-shared response of output to technology shocks
+        \item Labor: Hump-shaped response of output to technology shocks
     \end{itemize}
 
 \end{frame}
@@ -379,9 +379,9 @@
 
 \end{frame}
 
-\section{Contribution}
+\section{Concluding Remarks}
 
-\begin{frame}{Contribution}
+\begin{frame}{Remarks}
     \begin{itemize}
         \item Baseline model and gestation lags and capital adjustment costs model have weak
               internal propagation mechanisms and do not generate dynamics via their internal
@@ -405,11 +405,11 @@
     The transitory component of output can be written as $$
         y_{\mathrm{T}}(t)=\underbrace{\left[\frac{\varepsilon_{\mathrm{g}}(t)}{1-0.96
                     L}\right]}_{\textit{shock dynamics}}\underbrace{(0.16)}_{\textit{propagation
-            effect}} $$ $\Rightarrow$ Little contribution from propagation mechanisms
+            effect}} $$ $\Rightarrow$ Little contribution from propagation mechanisms in both permanent and transitory component.
 
 \end{frame}
 
-\begin{frame}{Propagation Mechanism}
+\begin{frame}{Remarks}
     \begin{figure}
         \centering
         \includegraphics[width=0.8\linewidth]{figures/propagation0.png}
@@ -435,7 +435,7 @@
 
 \end{frame}
 
-{\setbeamercolor{palette primary}{fg=black, bg=yellow}
+{\setbeamercolor{palette primary}{fg=white, bg=mDarkTeal}
 \begin{frame}[standout]
   Questions
 \end{frame}
